@@ -2,6 +2,10 @@
 const canvas = document.querySelector("canvas");
 const gameTime = document.querySelector(".timer");
 const gameResult = document.querySelector(".game__result");
+const audioPlay = document.querySelector("audio");
+const audioContainer = document.querySelector(".audio__container");
+const emberAudio = document.querySelector(".ember__attack")
+const xanderAudio = document.querySelector(".xander__attack")
 
 // setting up the canvas and getting the 2D renderinng context
 const ctx = canvas.getContext("2d");
@@ -275,6 +279,7 @@ window.addEventListener("keydown", (e) => {
         break;
       case " ":
         player.attack();
+        emberAudio.play()
         break;
     }
   }
@@ -295,6 +300,7 @@ window.addEventListener("keydown", (e) => {
         break;
       case "Enter":
         enemy.attack();
+        xanderAudio.play()
         break;
     }
   }
