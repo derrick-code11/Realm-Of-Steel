@@ -163,8 +163,6 @@ const controls = {
   },
 };
 
-displayTime();
-
 function animate() {
   // Updating and rendering game elements within the animation loop
   // Player and enemy movement is controlled based on the key controls
@@ -325,5 +323,3 @@ window.addEventListener("keyup", (e) => {
       break;
   }
 });
-
-animate(); // call to start the animation loop
