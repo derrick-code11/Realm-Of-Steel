@@ -1,17 +1,24 @@
+// selecting elements from DOM
 const canvas = document.querySelector("canvas");
 const gameTime = document.querySelector(".timer");
 const gameResult = document.querySelector(".game__result");
-const ctx = canvas.getContext("2d");
-let time = 60;
-let timeId;
 
+// setting up the canvas and getting the 2D renderinng context
+const ctx = canvas.getContext("2d");
 canvas.width = 1280;
 canvas.height = 720;
-
 ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+// setting up initial variables
+let time = 60;
+let timeId;
 const gravity = 0.7;
 
+// Creating background, player, and enemy objects using a custom Fighter class
+// Each object contains properties related to their position, velocity, sprites, etc.
+// These objects are responsible for rendering and updating their respective sprites
 const background = new Sprite({
+  // Properties for the background object
   position: {
     x: 0,
     y: 0,
@@ -20,6 +27,7 @@ const background = new Sprite({
 });
 
 const player = new Fighter({
+  // Properties for the player object
   position: {
     x: 0,
     y: 0,
@@ -76,6 +84,7 @@ const player = new Fighter({
 });
 
 const enemy = new Fighter({
+  // Properties for the enemy object
   position: {
     x: 400,
     y: 100,
@@ -157,6 +166,13 @@ const controls = {
 displayTime();
 
 function animate() {
+  // Updating and rendering game elements within the animation loop
+  // Player and enemy movement is controlled based on the key controls
+  // Collision detection is performed, and characters can attack and take damage
+  // The game result is checked based on health conditions
+
+  // Recursive call to request the next animation frame
+
   window.requestAnimationFrame(animate);
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -213,9 +229,9 @@ function animate() {
   ) {
     enemy.takeHit();
     player.isAttacking = false;
-    gsap.to('.enemy__show__health',{
-        width: enemy.health + '%'
-    })
+    gsap.to(".enemy__show__health", {
+      width: enemy.health + "%",
+    });
   }
 
   if (player.isAttacking && player.currentFrame === 4) {
@@ -229,9 +245,9 @@ function animate() {
   ) {
     player.takeHit();
     enemy.isAttacking = false;
-    gsap.to('.player__show__health',{
-        width: player.health + '%'
-    })
+    gsap.to(".player__show__health", {
+      width: player.health + "%",
+    });
   }
 
   if (enemy.isAttacking && enemy.currentFrame === 2) {
@@ -243,8 +259,6 @@ function animate() {
     showWinner({ player, enemy, timeId });
   }
 }
-
-animate();
 
 // adding event listeners for keydown events
 window.addEventListener("keydown", (e) => {
@@ -311,3 +325,5 @@ window.addEventListener("keyup", (e) => {
       break;
   }
 });
+
+animate(); // call to start the animation loop
