@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Realm Of Steel</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
     <link rel="stylesheet" href="index.css" />
+    <script src="start.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
       integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer" defer
+      referrerpolicy="no-referrer"
+      defer
     ></script>
     <script src="utils.js" defer></script>
     <script src="classes.js" defer></script>
@@ -18,6 +21,43 @@
   </head>
   <body>
     <div class="main__container">
+      <div class="start__screen">
+        <h1>Realm of Steel</h1>
+        <div class="game__characters">
+          <img src="/assets/Ember.png" alt="Game Character 1" />
+          <img src="/assets/Xander.png" alt="Game Character 2" />
+        </div>
+        <div class="instructions">
+          <h2>Instructions:</h2>
+          <p class="welcome__blurb">
+            Welcome to Realm of Steel! Get ready for epic battles and intense
+            action. Here's how to play:
+          </p>
+          <h2>Controls:</h2>
+          <ul class="controls">
+            <li>
+              <p class="controls__heading">Ember(Red Samurai):</p>
+              <ul class="move__list">
+                <li>Move Up: W</li>
+                <li>Move Left: A</li>
+                <li>Move Right: D</li>
+                <li>Basic Attack: Space Bar</li>
+              </ul>
+            </li>
+            <li>
+              <p class="controls__heading">Xander(Blue Samurai)</p>
+              <ul class="move__list">
+                <li>Move Up: Up Arrow</li>
+                <li>Move Left: Left Arrow</li>
+                <li>Move Right: Right Arrow</li>
+                <li>Basic Attack: Enter</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <button class="start__button">Start Game</button>
+      </div>
+
       <div class="health__bar">
         <!--Player health bar-->
         <div class="player__bar__wrapper">
@@ -33,7 +73,7 @@
         </div>
       </div>
       <div class="game__result"></div>
-      <canvas></canvas>
+      <canvas class="game__canvas"></canvas>
     </div>
   </body>
 </html>
