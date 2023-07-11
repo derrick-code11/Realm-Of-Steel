@@ -117,7 +117,6 @@ class Fighter extends Sprite {
   }
 
   changeSprite(sprite) {
-
     // overriding all animations with death animation
     if (this.image === this.sprites.death.image) {
       if (this.currentFrame === this.sprites.death.totalFrames - 1) {
@@ -140,7 +139,6 @@ class Fighter extends Sprite {
     )
       return;
 
-    
     // determines the correct sprite to render on the screen
     switch (sprite) {
       case "idle":
