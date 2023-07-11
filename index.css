@@ -1,20 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
+}
+
+body {
+  background: #1b2430;
+  color: ghostwhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .main__container {
-  position: relative;
-  display: inline-block;
+  text-align: center;
+}
+
+.game__canvas {
+  display: none;
+}
+
+.start__screen {
+  text-align: center;
+}
+
+.start__screen h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.game__characters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.game__characters img {
+  width: 150px;
+  margin: 0 1rem;
+}
+
+.instructions {
+  margin-bottom: 2.5rem;
+}
+
+.welcome__blurb {
+  margin: 2rem 0;
+}
+
+.instructions h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.instructions h2 {
+  text-align: center;
+}
+
+.instructions ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+.instructions li {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.controls {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.controls__heading {
+  text-align: left;
+  padding: 1.5rem 0;
+}
+
+.move__list {
+  text-align: left;
+}
+
+.start__button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.start__button:hover {
+  background-color: #45a049;
+}
+
+.start__button:focus {
+  outline: none;
 }
 
 .health__bar {
   position: absolute;
-  display: flex;
+  display: none;
   width: 100%;
   align-items: center;
   padding: 10px;
@@ -52,7 +142,6 @@
   border-radius: 15px;
   width: 100%;
   height: 25px;
-  
 }
 
 .enemy__show__health,
@@ -68,14 +157,14 @@
 
 .game__result {
   font-size: 3rem;
-    color: white;
-    text-transform: uppercase;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  color: white;
+  text-transform: uppercase;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
