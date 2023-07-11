@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.main__container {
+  position: relative;
+  display: inline-block;
+}
+
+.health__bar {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  width: 80px;
+  height: 70px;
+  flex-shrink: 0;
+  border: 4px solid cyan;
+  border-radius: 50%;
+}
+
+.player__bar__wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.enemy__bar__wrapper,
+.player__bar__wrapper {
+  position: relative;
+  border-radius: 15px;
+  width: 100%;
+  border: 4px solid white;
+}
+
+.enemy__bar,
+.player__bar {
+  background-color: red;
+  border-radius: 15px;
+  width: 100%;
+  height: 25px;
+  
+}
+
+.enemy__show__health,
+.player__show__health {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: limegreen;
+  border-radius: 15px;
+}
+
+.game__result {
+  font-size: 3rem;
+    color: white;
+    text-transform: uppercase;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
