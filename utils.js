@@ -19,6 +19,11 @@ function showWinner({ player, enemy, timeId }) {
       ? (gameResult.innerHTML = "Ember Wins 🥷🚩🎉")
       : (gameResult.innerHTML = "Xander Wins 🤺🏴‍☠️🎉");
   }
+  setTimeout(() => {
+    audioPlay.autoplay = false;
+    audioPlay.pause();
+    audioContainer.style.display = "none";
+  }, 8000);
 }
 
 // displays game time
