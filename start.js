@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const startScreen = document.querySelector(".start__screen");
   const mainContainer = document.querySelector(".main__container");
   const healthBar = document.querySelector(".health__bar");
+  
 
   // Get reference to the start button
   const startButton = document.querySelector(".start__button");
@@ -22,6 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Properly style main container
     mainContainer.style.position = "relative";
     mainContainer.style.display = "inline-block";
+
+    // Display audio bar
+    audioContainer.style.display = "block";
+
+    // contolling audio
+    audioPlay.muted = false;
+    audioPlay.play();
 
     displayTime();
     animate(); // call to start the animation loop
