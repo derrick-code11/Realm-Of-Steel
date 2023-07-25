@@ -4,8 +4,8 @@ const gameTime = document.querySelector(".timer");
 const gameResult = document.querySelector(".game__result");
 const audioPlay = document.querySelector("audio");
 const audioContainer = document.querySelector(".audio__container");
-const emberAudio = document.querySelector(".ember__attack")
-const xanderAudio = document.querySelector(".xander__attack")
+const emberAudio = document.querySelector(".ember__attack");
+const xanderAudio = document.querySelector(".xander__attack");
 
 // setting up the canvas and getting the 2D renderinng context
 const ctx = canvas.getContext("2d");
@@ -186,11 +186,19 @@ function animate() {
 
   // conditions for accurate player movement
   if (controls.a.isPressed && player.lastKeyPressed === "a") {
-    player.velocity.x = -5;
-    player.changeSprite("run");
+    if (player.position.x - 5 >= 0) {
+      player.velocity.x = -5;
+      player.changeSprite("run");
+    } else {
+      player.velocity.x = 0;
+    }
   } else if (controls.d.isPressed && player.lastKeyPressed === "d") {
-    player.velocity.x = 5;
-    player.changeSprite("run");
+    if (player.position.x + player.width + 30 <= canvas.width) {
+      player.velocity.x = 5;
+      player.changeSprite("run");
+    } else {
+      player.velocity.x = 0;
+    }
   } else {
     player.changeSprite("idle");
   }
@@ -198,20 +206,34 @@ function animate() {
   // player jump and fall
   if (player.velocity.y < 0) {
     player.changeSprite("jump");
+    if (player.position.y > 0) {
+      // Check if moving upward doesn't exceed the canvas boundary
+      player.position.y += player.velocity.y;
+    } else {
+      player.velocity.y = 0;
+    }
   } else if (player.velocity.y > 0) {
     player.changeSprite("fall");
   }
 
   // conditions for accurate enemy movement
   if (controls.ArrowLeft.isPressed && enemy.lastKeyPressed === "ArrowLeft") {
-    enemy.velocity.x = -5;
-    enemy.changeSprite("run");
+    if (enemy.position.x - 5 >= 0) {
+      enemy.velocity.x = -5;
+      enemy.changeSprite("run");
+    } else {
+      enemy.velocity.x = 0;
+    }
   } else if (
     controls.ArrowRight.isPressed &&
     enemy.lastKeyPressed === "ArrowRight"
   ) {
-    enemy.velocity.x = 5;
-    enemy.changeSprite("run");
+    if (enemy.position.x + enemy.width + 30 <= canvas.width) {
+      enemy.velocity.x = 5;
+      enemy.changeSprite("run");
+    } else {
+      enemy.velocity.x = 0;
+    }
   } else {
     enemy.changeSprite("idle");
   }
@@ -219,6 +241,12 @@ function animate() {
   // enemy jump and fall
   if (enemy.velocity.y < 0) {
     enemy.changeSprite("jump");
+    if (enemy.position.y > 0) {
+      // Check if moving upward doesn't exceed the canvas boundary
+      enemy.position.y += enemy.velocity.y;
+    } else {
+      enemy.velocity.y = 0;
+    }
   } else if (enemy.velocity.y > 0) {
     enemy.changeSprite("fall");
   }
@@ -279,7 +307,7 @@ window.addEventListener("keydown", (e) => {
         break;
       case " ":
         player.attack();
-        emberAudio.play()
+        emberAudio.play();
         break;
     }
   }
@@ -300,7 +328,7 @@ window.addEventListener("keydown", (e) => {
         break;
       case "Enter":
         enemy.attack();
-        xanderAudio.play()
+        xanderAudio.play();
         break;
     }
   }
