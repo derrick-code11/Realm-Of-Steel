@@ -9,7 +9,7 @@ Realm Of Steel is a Samurai themed 2D fighting game developed using JavaScript a
 ## Technologies Used
 
 - JavaScript
-- HTML5
+- HTML
 - CSS
 - Canvas API
 
