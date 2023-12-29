@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Realm Of Steel is a Samurai themed 2D fighting game developed using JavaScript and HTML5 Canvas.
+Realm Of Steel is a Samurai-themed 2D fighting game developed using JavaScript and HTML5 Canvas.
 
 ## Technologies Used
 
@@ -15,7 +15,7 @@ Realm Of Steel is a Samurai themed 2D fighting game developed using JavaScript a
 
 ## How to Play
 
-1. Visit the game's online version [here](https://realm-of-steel.netlify.app/) to play directly in your browser.
+1. Visit the game's online version [here](https://realm-of-steel01.netlify.app/) to play directly in your browser.
 
 ## Game Controls
 
